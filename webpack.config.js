@@ -47,6 +47,9 @@ module.exports = {
         test: /\.(png|jpg|svg|gif|otf|ttf|woff|eot)$/,
         loaders: ['file'],
         exclude: /node_modules/,
+      }, {
+        loaders: ['style', 'css?sourceMap'],
+        test: /\.css$/,
       },
     ],
   },
