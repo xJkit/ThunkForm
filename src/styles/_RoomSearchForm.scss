@@ -1,0 +1,18 @@
+.room-search-form {
+  display: flex;
+  height: 50px;
+  align-items: center;
+
+  section {
+    margin-right: 12px;
+  }
+
+  button {
+    margin-left: auto;
+    margin-right: 12px;
+    font-size: 1rem;
+    padding: 6px 18px;
+    background-color: transparent;
+    border: 1px solid black;
+  }
+}

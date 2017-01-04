@@ -26,15 +26,15 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
-app.get('/economy', (req, res) => {
+app.get('/api/economy', (req, res) => {
   res.json(economy);
 });
 
-app.get('/normal', (req, res) => {
+app.get('/api/normal', (req, res) => {
   res.json(normal);
 });
 
-app.get('/premium', (req, res) => {
+app.get('/api/premium', (req, res) => {
   res.json(premium);
 });
 
