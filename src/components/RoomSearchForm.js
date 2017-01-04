@@ -1,6 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import * as actions from 'actions';
 
 class RoomSearchForm extends Component {
+
+  static propTypes = {
+    economy: PropTypes.any.isRequired,
+    getEconomyRooms: PropTypes.func.isRequired,
+  };
+
+  componentWillMount() {
+    const { getEconomyRooms } = this.props;
+    getEconomyRooms();
+  }
+
   render() {
     return (
       <form className="room-search-form">
@@ -28,4 +41,10 @@ class RoomSearchForm extends Component {
   }
 }
 
-export default RoomSearchForm;
+const mapStateToProps = state => ({
+  economy: state.economy,
+});
+
+export default connect(mapStateToProps, {
+  getEconomyRooms: actions.rooms.getEconomyRooms,
+})(RoomSearchForm);

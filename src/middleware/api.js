@@ -10,7 +10,6 @@ export default store => next => action => {
     return next(action);
   }
   console.log('catch an async action');
-
   // destructure action types from the array of CALL_API keys
   const [requestType, successType, failureType] = action[CALL_API].types;
   // destructure the endpoint from the action creator
@@ -21,7 +20,7 @@ export default store => next => action => {
   });
 
   return fetch(`${API_ROOT}/${endpoint}`)
-    .then(res => res.json)
+    .then(res => res.json())
     .then(json => {
       store.dispatch({
         type: successType,

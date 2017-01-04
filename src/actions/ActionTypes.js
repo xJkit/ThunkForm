@@ -3,11 +3,12 @@ const SUCCESS = 'SUCCESS';
 const FAILURE = 'FAILURE';
 
 function createRequestType(base) {
-  return [REQUEST, SUCCESS, FAILURE].reduce((acc, type) => {
+  const typeObj = [REQUEST, SUCCESS, FAILURE].reduce((acc, type) => {
     const ret = acc;
     ret[type] = `${base}_${type}`;
     return ret;
   }, {});
+  return typeObj;
 }
 
 export const GET_ECONOMY_ROOM = createRequestType('GET_ECONOMY_ROOM');
