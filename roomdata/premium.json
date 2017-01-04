@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "Ruby",
+    "quantity": 4
+  }, {
+    "id": 2,
+    "name": "Sapphire",
+    "quantity": 2
+  }, {
+    "id": 3,
+    "name": "Emerald",
+    "quantity": 7
+  }
+]

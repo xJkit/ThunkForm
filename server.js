@@ -8,7 +8,10 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 
 const ADDR = 'localhost';
 const PORT = process.env.PORT || 3000;
-
+// fake data
+const economy = require('./roomdata/economy.json');
+const normal = require('./roomdata/normal.json');
+const premium = require('./roomdata/premium.json');
 //
 const app = express();
 const compiler = webpack(webpackConfig);
@@ -23,6 +26,17 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
+app.get('/economy', (req, res) => {
+  res.json(economy);
+});
+
+app.get('/normal', (req, res) => {
+  res.json(normal);
+});
+
+app.get('/premium', (req, res) => {
+  res.json(premium);
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

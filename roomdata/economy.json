@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Space Gray",
+    "quantity": 45
+  }, {
+    "id": 2,
+    "name": "Rose Gold",
+    "quantity": 36
+  }, {
+    "id": 3,
+    "name": "Silver",
+    "quantity": 72
+  }, {
+    "id": 4,
+    "name": "Hot Red",
+    "quantity": 65
+  }, {
+    "id": 5,
+    "name": "Safe Blue",
+    "quantity": 108
+  }
+]

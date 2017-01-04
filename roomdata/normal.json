@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Tiger",
+    "quantity": 12
+  }, {
+    "id": 2,
+    "name": "Lepard",
+    "quantity": 8
+  }, {
+    "id": 3,
+    "name": "Lion",
+    "quantity": 16
+  }, {
+    "id": 4,
+    "name": "Puma",
+    "quantity": 6
+  }, {
+    "id": 5,
+    "name": "Jaguar",
+    "quantity": 27
+  }, {
+    "id": 6,
+    "name": "Cheetah",
+    "quantity": 4
+  }
+]
