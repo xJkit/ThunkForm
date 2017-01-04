@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
@@ -5,7 +6,7 @@ import * as actions from 'actions';
 class RoomSearchForm extends Component {
 
   static propTypes = {
-    economy: PropTypes.any.isRequired,
+    economy: PropTypes.array.isRequired,
     getEconomyRooms: PropTypes.func.isRequired,
   };
 
@@ -14,9 +15,14 @@ class RoomSearchForm extends Component {
     getEconomyRooms();
   }
 
+  onFormSubmit(evt) {
+    evt.preventDefault();
+    console.warn('You submit the form!');
+  }
+
   render() {
     return (
-      <form className="room-search-form">
+      <form className="room-search-form" onSubmit={::this.onFormSubmit}>
         <section className="economy">
           <span>經濟房型</span>
           <select defaultValue="all">
