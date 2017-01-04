@@ -1,7 +1,7 @@
 /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
 import 'isomorphic-fetch';
+import * as Types from 'actions/ActionTypes';
 export const CALL_API = Symbol('call api');
-
 const API_ROOT = 'http://localhost:3000/api';
 
 export default store => next => action => {
@@ -19,6 +19,10 @@ export default store => next => action => {
     type: requestType,
   });
 
+  store.dispatch({
+    type: Types.TOGGLE_INDICATOR,
+  });
+
   return fetch(`${API_ROOT}/${endpoint}`)
     .then(res => res.json())
     .then(json => {
@@ -26,12 +30,18 @@ export default store => next => action => {
         type: successType,
         payload: json,
       });
+      store.dispatch({
+        type: Types.TOGGLE_INDICATOR,
+      });
     })
     .catch(err => {
       console.log('fetch failed');
       console.log(err);
       store.dispatch({
         type: failureType,
+      });
+      store.dispatch({
+        type: Types.TOGGLE_INDICATOR,
       });
     });
 };

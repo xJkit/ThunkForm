@@ -1,30 +1,16 @@
 import * as Types from 'actions/ActionTypes';
 
-const initialState = {
-  isFetching: false,
-  payload: undefined,
-};
-
-export function economyReducer(state = initialState, action) {
+export function economyReducer(state = {}, action) {
   switch (action.type) {
     case Types.GET_ECONOMY_ROOM.REQUEST:
-      return {
-        ...state,
-        isFetching: true,
-        payload: undefined,
-      };
+      return state;
     case Types.GET_ECONOMY_ROOM.SUCCESS:
       return {
         ...state,
-        isFetching: false,
-        payload: action.payload,
+        ...action.payload,
       };
     case Types.GET_ECONOMY_ROOM.FAILURE:
-      return {
-        ...state,
-        isFetching: false,
-        payload: undefined,
-      };
+      return state;
     default:
       return state;
   }
