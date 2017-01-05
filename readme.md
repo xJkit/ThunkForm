@@ -2,7 +2,7 @@
 Demo for multiple asynchronous http requests via ``Redux Thunk`` middleware.
 
 ## Why Thunk?
-Dispatching multiple actions of async requests make your component re-render multiple times (cuz' once component's props update, it renders). Use ``Redux Thunk`` and ``middleware`` to make multiple requests at a time and wait until data resolved.
+Dispatching multiple actions of async requests makes your component re-render multiple times (cuz' once component's props update, it renders). Use ``Redux Thunk`` and ``middleware`` to make multiple requests at a time and wait until data resolved.
 
 ## Basic Async Actions in Middleware
 Wrap any asyc actions with ``CALL_API``, then unwrap them in the middleware.
@@ -21,9 +21,9 @@ Middleware will check all the action objects passing through and keep those with
   4. if data don't get back:
     * dispatch a ``failure`` action (without ``CALL_API`` key).
 
-The middleware will return an object like this:
+The middleware will export a function like this:
 ```javascript
-  export default store => next => action {
+  export default store => next => action => {
     //async process...
   }
 ```
