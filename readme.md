@@ -29,6 +29,9 @@ The middleware will export a function like this:
 ```
 where actions are dispatched by ``store.dispatch({...})`` and skipped by ``next(action)``.
 
+### What ThunkForm differs
+Please checkout the branch: [feat/thunk-form](https://github.com/xJkit/ThunkForm/tree/feat/thunk-form) to see the thunk functions for action creators.
+
 ## Reference
 * [Can I dispatch multiple actions from Redux action creators? @James Nelson](http://jamesknelson.com/can-i-dispatch-multiple-actions-from-redux-action-creators/)
 * [whats the redux idiom for waiting for multiple async calls? @redux issues](https://github.com/reactjs/redux/issues/723)
