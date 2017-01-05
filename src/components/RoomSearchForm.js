@@ -7,13 +7,19 @@ class RoomSearchForm extends Component {
 
   static propTypes = {
     economy: PropTypes.array.isRequired,
+    normal: PropTypes.array.isRequired,
+    premium: PropTypes.array.isRequired,
     getEconomyRooms: PropTypes.func.isRequired,
+    getNormalRooms: PropTypes.func.isRequired,
+    getPremiumRooms: PropTypes.func.isRequired,
     handleFormResult: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
-    const { getEconomyRooms } = this.props;
+    const { getEconomyRooms, getNormalRooms, getPremiumRooms } = this.props;
     getEconomyRooms();
+    getNormalRooms();
+    getPremiumRooms();
   }
 
   onFormSubmit(evt) {
@@ -27,29 +33,35 @@ class RoomSearchForm extends Component {
     this.props.handleFormResult(result);
   }
 
+  renderRoomOptions(rooms) {
+    return rooms.map(room => (
+      <option value={room.name} key={room.id}>{room.name}</option>
+    ));
+  }
+
   render() {
-    const { economy } = this.props;
+    const { economy, normal, premium } = this.props;
     return (
       <form className="room-search-form" onSubmit={::this.onFormSubmit}>
         <section className="economy">
           <span>經濟房型</span>
           <select defaultValue="all">
             <option value="all">不限</option>
-            {economy.map(room => (
-              <option value={room.name} key={room.id}>{room.name}</option>
-            ))}
+            {this.renderRoomOptions(economy)}
           </select>
         </section>
         <section className="normal">
           <span>普通房型</span>
           <select defaultValue="all">
-            <option value="">不限</option>
+            <option value="all">不限</option>
+            {this.renderRoomOptions(normal)}
           </select>
         </section>
         <section className="premium">
           <span>豪華房型</span>
           <select defaultValue="all">
-            <option value="">不限</option>
+            <option value="all">不限</option>
+            {this.renderRoomOptions(premium)}
           </select>
         </section>
         <button type="submit">查詢</button>
@@ -60,8 +72,12 @@ class RoomSearchForm extends Component {
 
 const mapStateToProps = state => ({
   economy: state.economy,
+  normal: state.normal,
+  premium: state.premium,
 });
 
 export default connect(mapStateToProps, {
   getEconomyRooms: actions.rooms.getEconomyRooms,
+  getNormalRooms: actions.rooms.getNormalRooms,
+  getPremiumRooms: actions.rooms.getPremiumRooms,
 })(RoomSearchForm);

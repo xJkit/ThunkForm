@@ -23,7 +23,7 @@ export const getNormalRooms = () => ({
   },
 });
 
-export const getPremiumRoom = () => ({
+export const getPremiumRooms = () => ({
   [CALL_API]: {
     types: [
       Types.GET_PREMIUM_ROOM.REQUEST,
