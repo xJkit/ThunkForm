@@ -11,3 +11,25 @@ export const getEconomyRooms = () => ({
     endpoint: 'economy',
   },
 });
+
+export const getNormalRooms = () => ({
+  [CALL_API]: {
+    types: [
+      Types.GET_NORMAL_ROOM.REQUEST,
+      Types.GET_NORMAL_ROOM.SUCCESS,
+      Types.GET_NORMAL_ROOM.FAILURE,
+    ],
+    endpoint: 'normal',
+  },
+});
+
+export const getPremiumRoom = () => ({
+  [CALL_API]: {
+    types: [
+      Types.GET_PREMIUM_ROOM.REQUEST,
+      Types.GET_PREMIUM_ROOM.SUCCESS,
+      Types.GET_PREMIUM_ROOM.FAILURE,
+    ],
+    endpoint: 'premium',
+  },
+});
