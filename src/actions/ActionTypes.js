@@ -12,6 +12,7 @@ function createRequestType(base) {
 }
 
 export const TOGGLE_INDICATOR = 'TOGGLE_INDICATOR';
+export const RENDER_COUNTER = 'RENDER_COUNTER';
 export const GET_ECONOMY_ROOM = createRequestType('GET_ECONOMY_ROOM');
 export const GET_NORMAL_ROOM = createRequestType('GET_NORMAL_ROOM');
 export const GET_PREMIUM_ROOM = createRequestType('GET_PREMIUM_ROOM');

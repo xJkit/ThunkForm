@@ -13,13 +13,20 @@ class RoomSearchForm extends Component {
     getNormalRooms: PropTypes.func.isRequired,
     getPremiumRooms: PropTypes.func.isRequired,
     handleFormResult: PropTypes.func.isRequired,
+    renderCounter: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
-    const { getEconomyRooms, getNormalRooms, getPremiumRooms } = this.props;
+    const { getEconomyRooms, getNormalRooms, getPremiumRooms, renderCounter } = this.props;
     getEconomyRooms();
     getNormalRooms();
     getPremiumRooms();
+    renderCounter();
+  }
+
+  componentWillUpdate() {
+    const { renderCounter } = this.props;
+    renderCounter();
   }
 
   onFormSubmit(evt) {
@@ -80,4 +87,5 @@ export default connect(mapStateToProps, {
   getEconomyRooms: actions.rooms.getEconomyRooms,
   getNormalRooms: actions.rooms.getNormalRooms,
   getPremiumRooms: actions.rooms.getPremiumRooms,
+  renderCounter: actions.renderCounter.renderCounter,
 })(RoomSearchForm);
