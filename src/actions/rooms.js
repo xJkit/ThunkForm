@@ -33,3 +33,13 @@ export const getPremiumRooms = () => ({
     endpoint: 'premium',
   },
 });
+
+
+// Thunk function
+export const getAllRooms = () => (dispatch) => {
+  // dispatch another action in this thunk function
+  dispatch(getEconomyRooms());
+  dispatch(getNormalRooms());
+  dispatch(getPremiumRooms());
+  console.log('Thunk function is called!');
+};

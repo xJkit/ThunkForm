@@ -9,18 +9,19 @@ class RoomSearchForm extends Component {
     economy: PropTypes.array.isRequired,
     normal: PropTypes.array.isRequired,
     premium: PropTypes.array.isRequired,
-    getEconomyRooms: PropTypes.func.isRequired,
-    getNormalRooms: PropTypes.func.isRequired,
-    getPremiumRooms: PropTypes.func.isRequired,
+    getAllRooms: PropTypes.func.isRequired,
     handleFormResult: PropTypes.func.isRequired,
     renderCounter: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
-    const { getEconomyRooms, getNormalRooms, getPremiumRooms, renderCounter } = this.props;
-    getEconomyRooms();
-    getNormalRooms();
-    getPremiumRooms();
+    // const { getEconomyRooms, getNormalRooms, getPremiumRooms, renderCounter } = this.props;
+    // getEconomyRooms();
+    // getNormalRooms();
+    // getPremiumRooms();
+    /* Replace the above action creators with thunk function */
+    const { renderCounter, getAllRooms } = this.props;
+    getAllRooms();
     renderCounter();
   }
 
@@ -84,8 +85,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  getEconomyRooms: actions.rooms.getEconomyRooms,
-  getNormalRooms: actions.rooms.getNormalRooms,
-  getPremiumRooms: actions.rooms.getPremiumRooms,
+  getAllRooms: actions.rooms.getAllRooms,
   renderCounter: actions.renderCounter.renderCounter,
 })(RoomSearchForm);
