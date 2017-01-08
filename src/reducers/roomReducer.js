@@ -7,6 +7,11 @@ export function economyReducer(state = [], action) {
         ...state,
         ...action.payload,
       ];
+    case Types.GET_ECONOMY_ROOM.FAILURE:
+      return [
+        ...state,
+        ...action.payload,
+      ];
     default:
       return state;
   }

@@ -34,8 +34,7 @@ export const getPremiumRooms = () => ({
   },
 });
 
-
-// Thunk function
+// Thunk function for dispatching another actions.
 export const getAllRooms = () => (dispatch) => {
   // dispatch another action in this thunk function
   dispatch(getEconomyRooms());
